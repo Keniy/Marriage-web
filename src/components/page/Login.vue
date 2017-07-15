@@ -40,7 +40,7 @@
             }
         },
         methods: {
-            submitForm(formName) {
+            submitForm(formName) { 
                 const self = this;
                 self.$refs[formName].validate((valid) => {
                     if (valid) {
