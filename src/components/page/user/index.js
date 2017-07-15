@@ -19,7 +19,6 @@ export default {
 			let _self = this;
 			_self.$axios.get(_self.urls.list, null).then((response) => {
 				_self.tableData = response.data;
-				console.log(_self.tableData);
 			});
 		},
 		search() {

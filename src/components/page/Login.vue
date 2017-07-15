@@ -22,9 +22,12 @@
     export default {
         data: function(){
             return {
+                urls: {
+                    login: 'api/login'
+                },
                 ruleForm: {
-                    username: '',
-                    password: ''
+                    username: 'admin',
+                    password: 'admin'
                 },
                 rules: {
                     username: [
@@ -41,8 +44,11 @@
                 const self = this;
                 self.$refs[formName].validate((valid) => {
                     if (valid) {
-                        localStorage.setItem('ms_username',self.ruleForm.username);
-                        self.$router.push('/index');
+                        self.$axios.post(this.urls.login, {username: this.ruleForm.username, password: this.ruleForm.password}).then((resp) => {
+                       
+                            localStorage.setItem('ms_username',self.ruleForm.username);
+                            self.$router.push('/index');
+                        })
                     } else {
                         console.log('error submit!!');
                         return false;

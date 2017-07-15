@@ -1,6 +1,6 @@
-# vue2-test
+# Marriage-Web
 
-> A Vue.js project
+> A Vue2.js project
 
 ## Build Setup
 
