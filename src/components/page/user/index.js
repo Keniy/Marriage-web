@@ -16,9 +16,8 @@ export default {
 	},
 	methods: {
 		init() {
-			let _self = this;
-			_self.$axios.get(_self.urls.list, null).then((response) => {
-				_self.tableData = response.data;
+			this.$http.get(this.urls.list, null).then((response) => {
+				this.tableData = response.data;
 			});
 		},
 		search() {

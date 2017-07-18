@@ -49,6 +49,25 @@
                                 title: '用户信息'
                             }
                         ]
+                    },
+                    {
+                        icon: 'el-icon-menu',
+                        index: '3',
+                        title: '系统管理',
+                        subs: [
+                            {
+                                index: 'role-manager',
+                                title: '角色管理'
+                            },
+                            {
+                                index: 'user-manager',
+                                title: '用户管理'
+                            },
+                            {
+                                index: 'menu-manager',
+                                title: '菜单管理'
+                            }
+                        ]
                     }
                 ]
             }

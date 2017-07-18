@@ -18,6 +18,9 @@
     export default {
         data() {
             return {
+                urls: {
+                    logout: '/logout'
+                },
                 name: 'linxin'
             }
         },
@@ -30,8 +33,18 @@
         methods:{
             handleCommand(command) {
                 if(command == 'loginout'){
-                    localStorage.removeItem('ms_username')
-                    this.$router.push('/login');
+                    this.$http.get(this.urls.logout, null).then((resp) => {
+                        this.$message({
+                            type: 'success',
+                            message: resp.data.message
+                        });
+                        localStorage.removeItem('ms_username')
+                        setTimeout(() => {
+                            this.$router.push('/login');
+                        }, 500);
+                    }, (error) => {
+
+                    })
                 }
             }
         }

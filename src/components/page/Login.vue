@@ -23,7 +23,7 @@
         data: function(){
             return {
                 urls: {
-                    login: 'api/login'
+                    login: '/login'
                 },
                 ruleForm: {
                     username: 'admin',
@@ -44,13 +44,18 @@
                 const self = this;
                 self.$refs[formName].validate((valid) => {
                     if (valid) {
-                        self.$axios.post(this.urls.login, {username: this.ruleForm.username, password: this.ruleForm.password}).then((resp) => {
-                       
+                        self.$http.post(this.urls.login, {username: this.ruleForm.username, password: this.ruleForm.password}).then((resp) => {
+                            this.$message({
+                                type: 'success',
+                                message: resp.data.message
+                            });
+
                             localStorage.setItem('ms_username',self.ruleForm.username);
-                            self.$router.push('/index');
+                            setTimeout(() => {
+                                self.$router.push('/index');
+                            }, 500)
                         })
                     } else {
-                        console.log('error submit!!');
                         return false;
                     }
                 });
